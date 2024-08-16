@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Wavespresso</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" href="assets/favicon.svg" />
+    <style>
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 25vh; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+li {
+  padding-top: 15px;
+}
+    </style>
+  </head>
+  <body>
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span><br>
+        <p>
+          <ol>
+          <li>Open Terminal: Launch your terminal application on your computer.</li>
+          <li>Enter SSH Command: Type the following command, replacing the IP address and username with the ones provided for your coffee machine's server:<br>
+          <b>ssh admin@192.168.1.100</b>
+          </li>
+          <li>Enter Password: When prompted, enter the password.<br>
+          <b>Password: admin</b></li>
+          <li>Accept Fingerprint: If this is your first time connecting to the server, you may be asked to accept the server's fingerprint. Type yes and press Enter.</li>
+          <li>Access Granted: Once authenticated, you should have access to the coffee machine's server.</li>
+          <li>Execute Commands: You can now execute commands on the server to control the coffee machine.</li></p>
+        </ol>
+      </div>
+    
+    </div>
+    <div
+      class="container-fluid w-100 text-light d-flex justify-content-left align-items-center"
+      style="background-color: #191919; height: 20vh"
+    >
+      <div class="row w-100">
+        <div class="col-6 d-block">
+          <h1 class="display-5 font-weight-light">Wavespresso</h1>
+          <p class="text-muted font-italic">
+            Made from fresh roasted ground coffee
+          </p>
+        </div>
+      </div>
+      <div
+        class="col-6 text-right text-muted d-flex align-items-center justify-content-right"
+      >
+        <div class="d-block ml-auto text-center">
+          <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Welcome,
+          admin<br />
+          <div style="height: 1vh"></div>
+          <button class="btn btn-small w-100 btn-dark" onclick="window.location.replace('index.html')">Logout</button><br />
+          <small>Remote Management Console</small>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid px-0">
+      <table class="table table-striped text-center">
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Location</th>
+                  <th>Model</th>
+                  <th>Status</th>
+                  <th>Last Maintenance</th>
+                  <th>Next Maintenance</th>
+                  <th>Cups Served</th>
+                  <th>Bean Type</th>
+                  <th>Water Level (%)</th>
+                  <th>Temperature (°C)</th>
+                  <th>Troubleshoot</th>
+              </tr>
+          </thead>
+          <tbody>
+              <!-- Rows will be inserted here -->
+              <tr><td>1</td><td>Office A</td><td>Model X1</td><td>Active</td><td>2024-07-10</td><td>2024-08-10</td><td>1500</td><td>Arabica</td><td>75</td><td>90</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>2</td><td>Office B</td><td>Model Y2</td><td>Inactive</td><td>2024-06-15</td><td>2024-09-15</td><td>1200</td><td>Robusta</td><td>50</td><td>85</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>3</td><td>Office C</td><td>Model Z3</td><td>Active</td><td>2024-07-20</td><td>2024-08-20</td><td>1800</td><td>Blend</td><td>60</td><td>88</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>4</td><td>Office D</td><td>Model X1</td><td>Active</td><td>2024-07-05</td><td>2024-08-05</td><td>2000</td><td>Arabica</td><td>80</td><td>92</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>5</td><td>Office E</td><td>Model Y2</td><td>Inactive</td><td>2024-06-10</td><td>2024-09-10</td><td>1100</td><td>Robusta</td><td>40</td><td>83</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>6</td><td>Office F</td><td>Model Z3</td><td>Active</td><td>2024-07-25</td><td>2024-08-25</td><td>1700</td><td>Blend</td><td>65</td><td>87</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>7</td><td>Office G</td><td>Model X1</td><td>Active</td><td>2024-07-15</td><td>2024-08-15</td><td>1600</td><td>Arabica</td><td>70</td><td>89</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>8</td><td>Office H</td><td>Model Y2</td><td>Inactive</td><td>2024-06-20</td><td>2024-09-20</td><td>1300</td><td>Robusta</td><td>55</td><td>86</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>9</td><td>Office I</td><td>Model Z3</td><td>Active</td><td>2024-07-30</td><td>2024-08-30</td><td>1900</td><td>Blend</td><td>68</td><td>88</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>10</td><td>Office J</td><td>Model X1</td><td>Active</td><td>2024-07-12</td><td>2024-08-12</td><td>1400</td><td>Arabica</td><td>75</td><td>90</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>11</td><td>Office K</td><td>Model Y2</td><td>Inactive</td><td>2024-06-18</td><td>2024-09-18</td><td>1250</td><td>Robusta</td><td>52</td><td>85</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>12</td><td>Office L</td><td>Model Z3</td><td>Active</td><td>2024-07-22</td><td>2024-08-22</td><td>1750</td><td>Blend</td><td>60</td><td>88</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>13</td><td>Office M</td><td>Model X1</td><td>Active</td><td>2024-07-08</td><td>2024-08-08</td><td>1550</td><td>Arabica</td><td>78</td><td>91</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>14</td><td>Office N</td><td>Model Y2</td><td>Inactive</td><td>2024-06-12</td><td>2024-09-12</td><td>1150</td><td>Robusta</td><td>45</td><td>84</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>15</td><td>Office O</td><td>Model Z3</td><td>Active</td><td>2024-07-28</td><td>2024-08-28</td><td>1850</td><td>Blend</td><td>67</td><td>88</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>16</td><td>Office P</td><td>Model X1</td><td>Active</td><td>2024-07-18</td><td>2024-08-18</td><td>1650</td><td>Arabica</td><td>72</td><td>89</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>17</td><td>Office Q</td><td>Model Y2</td><td>Inactive</td><td>2024-06-22</td><td>2024-09-22</td><td>1350</td><td>Robusta</td><td>58</td><td>86</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>18</td><td>Office R</td><td>Model Z3</td><td>Active</td><td>2024-07-26</td><td>2024-08-26</td><td>1700</td><td>Blend</td><td>65</td><td>87</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>19</td><td>Office S</td><td>Model X1</td><td>Active</td><td>2024-07-14</td><td>2024-08-14</td><td>1600</td><td>Arabica</td><td>70</td><td>89</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              <tr><td>20</td><td>Office T</td><td>Model Y2</td><td>Inactive</td><td>2024-06-16</td><td>2024-09-16</td><td>1300</td><td>Robusta</td><td>55</td><td>85</td><td><button class="btn btn-small btn-success mybtn" onclick="openModal()">Connect</button></td></tr>
+              </tbody>
+              </table>
+              </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      var span = document.getElementsByClassName("close")[0];
+      var modal = document.getElementById("myModal");
+      span.onclick = function() {
+          modal.style.display = "none";
+        }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      function openModal(){
+        var modal = document.getElementById("myModal");
+        modal.style.display = "block";
+      }
+
+  </script>
+    <!-- <script>
+      // Get the modal
+      var modal = document.getElementById("myModal");
+      
+      // Get the button that opens the modal
+      var btn = document.getElementsByClassName("mybtn");
+      
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+      
+      // When the user clicks the button, open the modal 
+      for (var i = 0; i < btn.length; i++) {
+          btn[i].onclick = function(){
+            modal.style.display = "block";
+          }
+      }
+      // btn.onclick = function() {
+      //   modal.style.display = "block";
+      // }
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      </script> -->
+  </body>
+</html>
